@@ -1,0 +1,12 @@
+.main__ticketList {
+    margin-top: 20px;
+}
+@media (width < 540px) {
+    .main__ticketList {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

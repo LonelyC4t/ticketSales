@@ -1,0 +1,28 @@
+.button {
+    width: 170px;
+    height: 50px;
+    border: 1px solid #DFE5EC;
+    border-radius: 5px;
+    background-color: white;
+    transition: 0.5s;
+    box-shadow: 1px 1px 5px 1px #DFE5EC;
+}
+.button:hover{
+    background-color: #2196F3;
+    color: white;
+    transition: 0.5s;
+}
+@media (width < 540px) {
+    .button {
+        width: 130px;
+    }
+}
+@media (width < 540px) {
+    .main__button form {
+        display: flex;
+        justify-content: center;
+    }
+    .button {
+        font-size: 12px;
+    }
+}
