@@ -1,4 +1,5 @@
 /*eslint-disable*/
+import { useSelector } from 'react-redux';
 import Header from '../header/header';
 import Main from '../main/main';
 import style from './App.module.scss';
