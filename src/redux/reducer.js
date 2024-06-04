@@ -1,4 +1,5 @@
 /*eslint-disable*/
+/*
 const initialState = {
     checkBoxes: {
         chek1: false,
@@ -71,3 +72,46 @@ export const reducer = (state = initialState, action) => {
     }
     
 }
+*/
+const initialState = {
+    tickets: [],
+    ids: null,
+    checkBoxes: {
+      check1: false,
+      check2: false,
+      check3: false,
+      check4: false,
+    },
+  };
+  
+  export const reducer = (state = initialState, action) => {
+    switch (action.type) {
+
+      case 'check':
+        return {
+          ...state,
+          checkBoxes: {
+            ...state.checkBoxes,
+            ...action.payload,
+          },
+        };
+  
+      case 'switchAll':
+        return {
+          ...state,
+          checkBoxes: Object.keys(state.checkBoxes).reduce((acc, key) => {
+            acc[key] = action.payload;
+            return acc;
+          }, {}),
+        };
+
+        case 'ids':
+          return {...state, ids:action.payload}
+
+        case 'addTicket':
+          return {...state, tickets: action.payload}
+  
+      default:
+        return state;
+    }
+  };
