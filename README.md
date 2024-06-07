@@ -1,1 +1,1 @@
-ticket-sales-2wlo6h68v-evgenys-projects-6de40901.vercel.app
+https://ticket-sales-je4qvgiw1-evgenys-projects-6de40901.vercel.app/
