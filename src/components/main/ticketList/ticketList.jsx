@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
@@ -43,11 +42,8 @@ const TicketList = ({ count }) => {
       return <Ticket key={keys[ids] || ids} info={el} />;
     }
   });
-  
-  
-  
   return (
-    <div  className={style.main__ticketList}>
+    <div className={style.main__ticketList}>
       {load ? <Spinner /> : null}
       {Object.values(filter).every((el) => el === false) ? <NoTickets /> : ticket}
     </div>
