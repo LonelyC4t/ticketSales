@@ -1,4 +1,6 @@
+/*eslint-disable*/
 import { useSelector } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import NoTickets from '../noTicketElem/noTicket';
@@ -12,7 +14,7 @@ const TicketList = ({ count }) => {
   let load = useSelector((state) => state.load);
   let filter = useSelector((state) => state.checkBoxes);
   let sort = useSelector((state) => state.sort);
-
+  let [keys, setKeys] = useState([]);
   data = data.filter((el) => {
     const stops = el.segments[0].stops.length;
     const matchesCheck1 = filter.check1 && stops === 0;
@@ -21,6 +23,10 @@ const TicketList = ({ count }) => {
     const matchesCheck4 = filter.check4 && stops === 3;
     return matchesCheck1 || matchesCheck2 || matchesCheck3 || matchesCheck4;
   });
+  useEffect(() => {
+    const key = data.map(() => uuidv4());
+    setKeys(key);
+  }, [data.length]);
   data.sort((a, b) => {
     if (sort.price) {
       if (a.price < b.price) return -1;
@@ -34,11 +40,14 @@ const TicketList = ({ count }) => {
 
   const ticket = data.map((el, ids) => {
     if (ids < count) {
-      return <Ticket key={uuidv4()} info={el} />;
+      return <Ticket key={keys[ids] || ids} info={el} />;
     }
   });
+  
+  
+  
   return (
-    <div className={style.main__ticketList}>
+    <div  className={style.main__ticketList}>
       {load ? <Spinner /> : null}
       {Object.values(filter).every((el) => el === false) ? <NoTickets /> : ticket}
     </div>
