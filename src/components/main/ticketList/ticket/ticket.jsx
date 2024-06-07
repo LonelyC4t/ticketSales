@@ -21,7 +21,7 @@ const Ticket = ({ info }) => {
     <div className={style.ticketList__ticket}>
       <div className={style.ticket__header}>
         <p>{`${info.price} Р`}</p>
-        <img src={`http://pics.avs.io/100/40/${info.carrier}.png`} alt="" />
+        <img src={`http://pics.avs.io/100/40/${info.carrier}.png`} alt={`${info.carrier} авиакомпания`} />
       </div>
       <div className={style.ticket__info}>
         <div className={style.ticket__info_group}>
